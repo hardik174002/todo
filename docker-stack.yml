@@ -1,6 +1,17 @@
 version: "3.9"
 
 services:
+  mysql_db_app:
+    image: mysql
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql-data-app:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpass
+      - MYSQL_DATABASE=todo
+    networks:
+      - todo-network
   app:
     image: hardik4002/todo-1.0.0   # <<--- must be pushed to registry
     ports:
@@ -33,3 +44,5 @@ services:
 networks:
   backend:
     driver: overlay
+volumes:
+  mysql-data-app:
