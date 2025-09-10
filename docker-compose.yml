@@ -1,0 +1,35 @@
+services:
+  mysql_db_app:
+    image: mysql
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql-data-app:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpass
+      - MYSQL_DATABASE=todo
+    networks:
+      - todo-network
+
+  app:
+    container_name: todo-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql_db_app
+    ports:
+      - '8082:8080'
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql_db_app/todo
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=rootpass
+    networks:
+      - todo-network
+
+volumes:
+  mysql-data-app: null
+
+networks:
+  todo-network:
+    driver: bridge
