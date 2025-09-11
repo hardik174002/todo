@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/api/")
-@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:5173"})
+@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:5173","http://frontend:3000", "http://frontend:5173"})
 public class TodoController {
 
     private TodoService todoService;
