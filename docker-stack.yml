@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   frontend:
-    image: hardik4002/frontend:1.1.0
+    image: hardik4002/frontend:1.1.1
     ports:
       - target: 80
         published: 80
