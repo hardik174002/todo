@@ -16,7 +16,7 @@ services:
     image: hardik4002/todo-1.0.0   # <<--- must be pushed to registry
     ports:
       - target: 8080
-        published: 8080
+        published: 8082
         protocol: tcp
         mode: host
     depends_on:
@@ -37,11 +37,6 @@ services:
         limits:
           cpus: '0.5'
           memory: 512M
-    healthcheck:
-      test: ["CMD-SHELL", "wget -qO- --timeout=2 http://localhost:8082/actuator/health || exit 1"]
-      interval: 30s
-      timeout: 5s
-      retries: 3
     networks:
       - backend
 
