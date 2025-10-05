@@ -26,16 +26,6 @@ services:
       - SPRING_DATASOURCE_PASSWORD=rootpass
     networks:
       - todo-network
-    healthcheck:
-      test:
-        - CMD
-        - curl
-        - '-f'
-        - http://localhost:8082/actuator/health
-      interval: 15s
-      timeout: 30s
-      retries: 5
-      start_period: 10s
 
 volumes:
   mysql-data-app: null

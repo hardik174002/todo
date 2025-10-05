@@ -41,15 +41,15 @@ public class TodoController {
     }
     @GetMapping("home")
     public String homePage() {
-        return new String("Home Not Healthy");
+        return new String("This is the fourth of the TODO APP");
     }
-    @PostMapping("unhealthy")
+    @GetMapping("unhealthy")
     public String makeUnhealthy() {
         CustomHealthCheck.setForceUnhealthy(true);
         return "App marked as UNHEALTHY";
     }
 
-    @PostMapping("healthy")
+    @GetMapping("healthy")
     public String makeHealthy() {
         CustomHealthCheck.setForceUnhealthy(false);
         return "App marked as HEALTHY";
