@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.todo_app.dto.TodoRequest;
 import com.example.todo_app.entities.Todo;
+import com.example.todo_app.service.CustomHealthCheck;
 import com.example.todo_app.service.TodoService;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -41,6 +42,17 @@ public class TodoController {
     @GetMapping("home")
     public String homePage() {
         return new String("Home One");
+    }
+    @PostMapping("unhealthy")
+    public String makeUnhealthy() {
+        CustomHealthCheck.setForceUnhealthy(true);
+        return "App marked as UNHEALTHY";
+    }
+
+    @PostMapping("healthy")
+    public String makeHealthy() {
+        CustomHealthCheck.setForceUnhealthy(false);
+        return "App marked as HEALTHY";
     }
     
 }
