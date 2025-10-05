@@ -19,7 +19,7 @@ services:
     depends_on:
       - mysql_db_app
     ports:
-      - '8080:8080'
+      - '8082:8080'
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
       interval: 15s
