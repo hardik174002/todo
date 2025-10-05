@@ -42,7 +42,7 @@ services:
     deploy:
       replicas: 3
       update_config:
-        parallelism: 1
+        parallelism: 3
         delay: 10s
         failure_action: rollback
         order: stop-first
