@@ -9,6 +9,6 @@ FROM eclipse-temurin:21-jdk
 WORKDIR /app
 COPY --from=build /app/target/*.jar  app.jar
 EXPOSE 8082
-HEALTHCHECK --interval=10s --timeout=5s  CMD curl -f http://localhost:8082/actuator/health || exit 1
+HEALTHCHECK --interval=10s --timeout=5s --start-period=20s  CMD curl -f http://localhost:8082/actuator/health || exit 1
 ENTRYPOINT ["java","-jar","app.jar"]
 

@@ -46,7 +46,7 @@ services:
         delay: 10s
         failure_action: rollback
         order: stop-first
-        monitor: 60s
+        monitor: 10s
 
       restart_policy:
         condition: on-failure
