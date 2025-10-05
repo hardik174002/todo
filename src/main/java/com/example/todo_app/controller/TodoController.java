@@ -41,7 +41,7 @@ public class TodoController {
     }
     @GetMapping("home")
     public String homePage() {
-        return new String("Home One");
+        return new String("Home Two");
     }
     @PostMapping("unhealthy")
     public String makeUnhealthy() {

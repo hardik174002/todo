@@ -44,6 +44,10 @@ services:
       update_config:
         parallelism: 1
         delay: 10s
+        failure_action: rollback
+        order: stop-first
+        monitor: 60s
+
       restart_policy:
         condition: on-failure
         max_attempts: 5
