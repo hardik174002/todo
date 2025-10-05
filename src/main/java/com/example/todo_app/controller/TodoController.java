@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/api/")
-@CrossOrigin(origins = {"http://localhost:3000", "http://localhost:5173","http://192.168.64.6", "http://frontend:5173"})
+@CrossOrigin(origins = "*")
 public class TodoController {
 
     private TodoService todoService;
@@ -37,6 +37,10 @@ public class TodoController {
     @GetMapping("todos")
     public ResponseEntity<List<Todo>> getMethodName() {
         return ResponseEntity.status(HttpStatus.OK).body(todoService.getAllTodos());
+    }
+    @GetMapping("home")
+    public String homePage() {
+        return new String("Home One");
     }
     
 }

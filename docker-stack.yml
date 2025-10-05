@@ -27,10 +27,10 @@ services:
     networks:
       - backend
   app:
-    image: hardik4002/backend:1.1.0   # <<--- must be pushed to registry
+    image: hardik4002/backend:1.2.0   # <<--- must be pushed to registry
     ports:
       - target: 8080
-        published: 8082
+        published: 8080
         protocol: tcp
         mode: ingress
     depends_on:
