@@ -44,7 +44,7 @@ services:
       update_config:
         parallelism: 3
         delay: 10s
-        failure_action: rollback
+        failure_action: continue
         order: stop-first
         monitor: 10s
 
